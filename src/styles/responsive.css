@@ -1,0 +1,74 @@
+@media screen and (max-width: 1200px) {
+    .navbar ul {
+      width: 60%;
+    }
+  }
+  
+  @media screen and (max-width: 890px) {
+    .restaurant {
+      flex: 0 1 100%;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .navbar ul {
+      width: 70%;
+    }
+  
+    .text-container h1 {
+      font-size: 26px;
+    }
+    
+    .text-container p {
+      font-size: 14px;
+    }
+  
+    #explore h1 {
+      font-size: 26px;
+    }
+
+    .restaurant-catalog {
+      grid-template-columns: repeat(1, 1fr); /* 1 kolom di ponsel */
+    }
+  
+  }
+  
+  @media screen and (max-width: 576px) {
+    header .drawer-button {
+      display: inline-block;
+      color: var(--basic-orange);
+    }
+    .navbar ul {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50%;
+      height: 100vh;
+      background-color: var(--basic-cream);
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 60px;
+      align-items: center;
+      z-index: -1;
+      transform: translateX(100%);
+      transition: all 1s;
+      opacity: 0;
+    }
+  
+    .navbar ul li {
+      margin: 10px 0;
+    }
+  
+    .navbar ul.slide {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  
+    h2 {
+      font-size: 1.2em;
+    }
+    
+    p {
+      font-size: 14px;
+    }
+  }
