@@ -30,6 +30,10 @@
     .restaurant-catalog {
       grid-template-columns: repeat(1, 1fr); /* 1 kolom di ponsel */
     }
+
+    .menu-box {
+      grid-template-columns: repeat(1, 1fr);
+    }
   
   }
   
@@ -70,5 +74,9 @@
     
     p {
       font-size: 14px;
+    }
+
+    .menu-box {
+      grid-template-columns: repeat(1, 1fr);
     }
   }

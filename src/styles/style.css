@@ -14,7 +14,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-y: hidden;
 }
 
 body {
@@ -30,7 +29,7 @@ header {
 
   padding: 0 5%;
 
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -93,6 +92,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 4rem;
 }
 
 .overlay {
@@ -122,10 +122,19 @@ header {
   font-size: 18px;
 }
 
+#explore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 1.5rem;
+}
+
+
 #explore h1 {
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  color: var(--basic-black);
   font-size: 32px;
 }
 
@@ -133,10 +142,14 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 20px 0;
+  margin: 1rem 0;
   gap: 20px;
 }
 
+#restaurant-favorites {
+  padding: 20px;
+  margin-top: 1rem;
+}
 
 footer {
   text-align: center;
@@ -182,8 +195,7 @@ header .drawer-button {
 
 
 .restaurant-detail {
-  margin: 20px; 
-  padding: 0;
+  margin-top: 6rem;
   max-width: 100%; 
 }
 
@@ -354,7 +366,7 @@ header .drawer-button {
 
 .review-box ul li {
   list-style: none;
-  padding: 15px;
+  padding: 20px 8px;
   border-bottom: 1px solid #ddd;
   transition: background-color 0.3s ease;
 }

@@ -1,22 +1,24 @@
+/* eslint-disable padded-blocks */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-console */
 import FavRestoIdb from '../../data/resto-idb';
 import '../components/restaurant-item';
 
 const Favorite = {
   async render() {
     return `
-      <!-- Skip Link untuk Aksesibilitas -->
       <a href="#maincontent" class="skip-link">Skip to content</a>
-
-      <!-- Indikator Loading -->
-      <div id="loading" class="loading" style="display: none;">Loading...</div>
-
-      <!-- Daftar Restoran -->
-      <div class="restaurant-catalog" id="restaurant-catalog" tabindex="-1"></div>
+        <div id="loading" class="loading" style="display: none;">Loading...</div>
+          <section id="restaurant-favorites">
+          <h1>Favorites</h1>
+        <div class="restaurant-catalog" id="restaurant-catalog" tabindex="-1"></div>
+      </section>
     `;
   },
 
   async afterRender() {
-    // Atur Skip Link
+    
     const skipLink = document.querySelector('.skip-link');
     if (skipLink) {
       skipLink.addEventListener('click', (event) => {
@@ -24,7 +26,7 @@ const Favorite = {
         const targetId = skipLink.getAttribute('href').slice(1);
         const target = document.getElementById(targetId);
         if (target) {
-          target.setAttribute('tabindex', '-1'); // Untuk memastikan elemen dapat difokuskan
+          target.setAttribute('tabindex', '-1');
           target.focus();
           window.scrollTo({
             top: target.offsetTop,
