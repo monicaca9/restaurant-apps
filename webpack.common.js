@@ -49,7 +49,7 @@ module.exports = {
           },
         },
         {
-          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/images/small/'),
+          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/images/medium/'),
           handler: 'StaleWhileRevalidate',
           options: {
             cacheName: 'therestodb-api-detail',

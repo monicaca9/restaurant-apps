@@ -38,6 +38,8 @@ async function displayRestaurants() {
 const Home = {
   async render() {
     return `
+      <a href="#maincontent" class="skip-link">Skip to content</a>
+      <div id="loading" class="loading" style="display: none;">Loading...</div>
       <section class="hero">
         <div class="overlay">
           <div class="text-container">
