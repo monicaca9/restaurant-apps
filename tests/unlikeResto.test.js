@@ -17,6 +17,7 @@ describe('Unliking A Restaurant', () => {
     await FavRestoIdb.deleteResto(1);
   });
 
+<<<<<<< HEAD
   it('should display unlike widget when the restaurant has been liked', async () => {
     await createLikeButtonPresenterWithResto({ id: 1 });
 
@@ -24,6 +25,8 @@ describe('Unliking A Restaurant', () => {
       .toBeTruthy();
   });
 
+=======
+>>>>>>> c7ee8fe (update)
   it('should be able to remove liked restaurant from the list', async () => {
     await createLikeButtonPresenterWithResto({ id: 1 });
 
@@ -31,4 +34,14 @@ describe('Unliking A Restaurant', () => {
 
     expect(await FavRestoIdb.getResto(1)).toBeUndefined();
   });
+<<<<<<< HEAD
+=======
+
+  it('should display unlike widget when the restaurant has been liked', async () => {
+    await createLikeButtonPresenterWithResto({ id: 1 });
+
+    expect(document.querySelector('[aria-label="Unlike this restaurant"]'))
+      .toBeTruthy();
+  });
+>>>>>>> c7ee8fe (update)
 });

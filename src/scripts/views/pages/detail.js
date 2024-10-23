@@ -65,10 +65,17 @@ const Detail = {
             form.reset();
             this.updateReviews(id);
           } else {
+<<<<<<< HEAD
             console.error('Failed to submit review:', response.statusText);
           }
         } catch (error) {
           console.error('Failed to submit review:', error);
+=======
+            console.error('Review submission failed:', response.statusText);
+          }
+        } catch (error) {
+          console.error('Error submitting review:', error);
+>>>>>>> c7ee8fe (update)
         }
       }
     });
@@ -82,7 +89,11 @@ const Detail = {
       const reviewList = document.querySelector('.review-list');
       reviewList.innerHTML = customerReviews.map((review) => `<li class="review-item"><strong>${review.name}</strong>: ${review.review}</li>`).join('');
     } catch (error) {
+<<<<<<< HEAD
       console.error('Failed to update reviews:', error);
+=======
+      console.error('Error updating reviews:', error);
+>>>>>>> c7ee8fe (update)
     }
   },
 
@@ -162,9 +173,15 @@ const Detail = {
     `,
       };
     } catch (error) {
+<<<<<<< HEAD
       console.error('Failed to fetch restaurant details:', error);
       return {
         detailHtml: '<p class="error-message">Failed to load restaurant details. Please try again later.</p>',
+=======
+      console.error('Unable to fetch restaurant details:', error);
+      return {
+        detailHtml: '<p class="error-message">Unable to load restaurant details. Please try again later.</p>',
+>>>>>>> c7ee8fe (update)
       };
     } finally {
       loadingElement.style.display = 'none';

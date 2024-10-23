@@ -14,7 +14,11 @@ exports.config = {
   helpers: {
     Playwright: {
       browser: 'chromium',
+<<<<<<< HEAD
       url: 'http://localhost:9000',
+=======
+      url: 'http://localhost:8080',
+>>>>>>> c7ee8fe (update)
       show: true,
     },
   },
