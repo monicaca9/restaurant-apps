@@ -11,7 +11,8 @@
     "lint:fix": "eslint --fix ./src",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "build-image": "node sharp.js"
+    "build-image": "node sharp.js",
+    "e2e": "codeceptjs run --steps"
   },
   "keywords": [],
   "author": "Monica <your.email@domain.com>",

@@ -100,31 +100,5 @@ module.exports = {
       ],
     }),
     new BundleAnalyzerPlugin(),
-    new WorkboxWebpackPlugin.GenerateSW({
-      swDest: './sw.bundle.js',
-      runtimeCaching: [
-        {
-          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/'),
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'restodb-api',
-          },
-        },
-        {
-          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/images/medium/'),
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'restodb-image-api',
-          },
-        },
-        {
-          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/detail'),
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'restaurant-detail',
-          },
-        },
-      ],
-    }),
   ],
 };
