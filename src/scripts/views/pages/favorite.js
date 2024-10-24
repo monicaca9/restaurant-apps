@@ -58,11 +58,8 @@ async function displayFavoriteRestaurants() {
     restaurantList.innerHTML = '';
 
     if (favoriteRestaurants.length === 0) {
-<<<<<<< HEAD
       restaurantList.innerHTML = '<p class="error-message" tabindex="0">No favorite restaurants found.</p>';
-=======
       restaurantList.innerHTML = '<p class="error-message" tabindex="0">Unable to load favorite restaurants.</p>';
->>>>>>> c7ee8fe (update)
     } else {
       favoriteRestaurants.forEach((restaurant) => {
         const restaurantElement = document.createElement('restaurant-item');
@@ -81,15 +78,12 @@ async function displayFavoriteRestaurants() {
       });
     }
   } catch (error) {
-<<<<<<< HEAD
     console.error('Error fetching and displaying favorite restaurants:', error);
     const restaurantList = document.querySelector('.restaurant-catalog');
     restaurantList.innerHTML = '<p class="error-message">Failed to load favorite restaurants. Please try again later.</p>';
-=======
     console.error('Failed to fetch and display favorite restaurants:', error);
     const restaurantList = document.querySelector('.restaurant-catalog');
     restaurantList.innerHTML = '<p class="error-message">Unable to load favorite restaurants.</p>';
->>>>>>> c7ee8fe (update)
   } finally {
     if (loading) {
       loading.style.display = 'none';
