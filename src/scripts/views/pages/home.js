@@ -24,11 +24,11 @@ async function displayRestaurants() {
 
       restaurantList.appendChild(restaurantElement);
     });
-  catch (error) {
-  console.error('Error fetching and displaying restaurant data:', error);
-  const restaurantList = document.querySelector('.restaurant-catalog');
-  restaurantList.innerHTML = '<p class="error-message">Failed to load restaurants. Please try again later.</p>';
-} finally {
+  } catch (error) {
+    console.error('Error fetching and displaying restaurant data:', error);
+    const restaurantList = document.querySelector('.restaurant-catalog');
+    restaurantList.innerHTML = '<p class="error-message">Failed to load restaurants. Please try again later.</p>';
+  } finally {
     if (loading) {
       loading.style.display = 'none';
     }
