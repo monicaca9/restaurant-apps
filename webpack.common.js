@@ -40,8 +40,6 @@ module.exports = {
       },
     ],
   },
-<<<<<<< HEAD
-=======
   optimization: {
     splitChunks: {
       chunks: 'all',
@@ -65,7 +63,6 @@ module.exports = {
       },
     },
   },
->>>>>>> c7ee8fe (update)
   plugins: [
     new WorkboxWebpackPlugin.GenerateSW({
       swDest: './sw.bundle.js',
