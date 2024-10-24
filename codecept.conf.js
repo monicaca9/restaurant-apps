@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-keys */
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { setHeadlessWhen, setCommonPlugins } = require('@codeceptjs/configure');
 // turn on headless mode when running with HEADLESS=true environment variable
@@ -14,11 +15,11 @@ exports.config = {
   helpers: {
     Playwright: {
       browser: 'chromium',
-<<<<<<< HEAD
+
       url: 'http://localhost:9000',
-=======
+
       url: 'http://localhost:8080',
->>>>>>> c7ee8fe (update)
+
       show: true,
     },
   },
