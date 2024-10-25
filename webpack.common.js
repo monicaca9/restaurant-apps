@@ -3,7 +3,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -64,33 +63,6 @@ module.exports = {
     },
   },
   plugins: [
-    new WorkboxWebpackPlugin.GenerateSW({
-      swDest: './sw.bundle.js',
-      runtimeCaching: [
-        {
-          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/list'),
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'therestodb-api',
-          },
-        },
-        {
-          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/images/medium/'),
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'therestodb-api-detail',
-          },
-        },
-        {
-          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/detail'),
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'therestodb-api-review',
-          },
-        },
-      ],
-    }),
-
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/templates/index.html'),
