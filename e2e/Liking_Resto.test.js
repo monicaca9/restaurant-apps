@@ -14,7 +14,7 @@ Scenario("showing empty favorite restaurants", ({ I }) => {
   I.see("No favorite restaurants found.", ".error-message");
 });
 
-Scenario("adding and removing one restaurant to favorite", async ({ I }) => {
+Scenario("adding one restaurant to favorite", async ({ I }) => {
   I.see("No favorite restaurants found.", ".error-message");
 
   I.amOnPage("/");
@@ -23,39 +23,34 @@ Scenario("adding and removing one restaurant to favorite", async ({ I }) => {
   const firstRestaurantTitle = await I.grabTextFrom("restaurant-item h2");
   I.click(firstRestaurant);
 
-  Scenario("displaying an empty favorite restaurant list", ({ I }) => {
-    I.see("Unable to load favorite restaurants.", ".error-message");
-  });
+  I.seeElement("#likeButton");
+  I.click("#likeButton");
 
-  Scenario("adding and removing one restaurant to favorite", async ({ I }) => {
-    I.see("Unable to load favorite restaurants.", ".error-message");
+  I.amOnPage("/#/favorite");
+  I.refreshPage();
+  I.seeElement("restaurant-item");
+  const likedRestaurantTitle = await I.grabTextFrom("restaurant-item h2");
 
-    I.amOnPage("/");
-    I.seeElement("restaurant-item");
-    const restaurantFirst = locate("restaurant-item").first();
-    const restaurantFirstTitle = await I.grabTextFrom("restaurant-item h2");
-    I.click(restaurantFirst);
+  assert.equal(firstRestaurantTitle, likedRestaurantTitle);
+});
 
-    I.seeElement("#likeButton");
-    I.click("#likeButton");
+Scenario("removing one restaurant from favorite", async ({ I }) => {
+  I.amOnPage("/");
+  I.seeElement("restaurant-item");
+  const firstRestaurant = locate("restaurant-item").first();
+  I.click(firstRestaurant);
 
-    I.amOnPage("/#/favorite");
-    I.refreshPage();
-    I.seeElement("restaurant-item");
-    const likedRestaurantTitle = await I.grabTextFrom("restaurant-item h2");
-    I.click(firstRestaurant);
-    const restaurantLikedTitle = await I.grabTextFrom("restaurant-item h2");
-    I.click(restaurantFirst);
+  I.seeElement("#likeButton");
+  I.click("#likeButton");
 
-    I.seeElement("#likeButton");
-    I.click("#likeButton");
+  I.amOnPage("/#/favorite");
+  I.seeElement("restaurant-item");
 
-    I.amOnPage("/#/favorite");
+  I.click("restaurant-item");
 
-    I.see("No favorite restaurants found.", ".error-message");
-    assert.equal(firstRestaurantTitle, likedRestaurantTitle);
+  I.seeElement("#likeButton");
+  I.click("#likeButton");
 
-    I.see("Unable to load favorite restaurants.", ".error-message");
-    assert.equal(restaurantFirstTitle, restaurantLikedTitle);
-  });
+  I.amOnPage("/#/favorite");
+  I.see("No favorite restaurants found.", ".error-message");
 });
