@@ -139,7 +139,7 @@ class RestaurantItem extends HTMLElement {
       pictureId, name, city, rating, description, id,
     } = data;
     const imgElement = this.shadowRoot.querySelector('img');
-    imgElement.src = `https://restaurant-api.dicoding.dev/images/medium/${pictureId}`;
+    imgElement.setAttribute('data-src', `https://restaurant-api.dicoding.dev/images/medium/${pictureId}`);
     imgElement.alt = name;
 
     const h2Element = this.shadowRoot.querySelector('h2');
